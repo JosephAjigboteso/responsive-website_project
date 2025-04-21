@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+body {
+    overflow-x: hidden;
+    font-family: "Ubuntu", sans-serif;
+}
+
 /* HEADER */
 
 header {
@@ -34,7 +39,7 @@ header {
 }
 
 .phone-details p {
-    font-weight: bold;
+    font-weight: 500;
     cursor: pointer;
     transition: color 0.4s;
 }
@@ -72,7 +77,8 @@ header {
     width: 15%;
     border-radius: 0 5px 5px 0;
     color: white;
-    font-size: 15px;
+    font-size: 14px;
+    font-weight: 300;
     height: 40px;
     padding: 0.75px 0;
     display: inline-flex;
@@ -117,7 +123,8 @@ header {
     display: flex;
     gap: 30px;
     list-style: none;
-    font-size: 15px;
+    font-size: 14px;
+    font-weight: 300;
     cursor: pointer;
 }
 
@@ -182,7 +189,8 @@ header {
 }
 
 .about-content {
-    font-size: 14px;
+    font-size: 12px;
+    font-weight: 300;
     color: rgb(120, 120, 120);
     margin-bottom: 10px;
 }
@@ -199,4 +207,278 @@ header {
 
 .shop-btn:hover {
     background-color: #00aee5;
+}
+
+/* 
+NEW ARRIVAL */
+
+.new-arrivals {
+    padding: 15px 25px 25px 25px;
+}
+
+.new-arrivals-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.arrival-1,
+.arrival-2,
+.arrival-3 {
+    flex: 100%;
+}
+
+.arrival-1 {
+    background-image: url('./images/banner-1-570x350.jpg');
+    background-size: cover;
+    background-position: 72% 50%;
+    padding: 50px 0 0 20px;
+}
+
+.arrival-1 p {
+    font-size: 24px;
+    margin-bottom: 20px;
+    line-height: 35px;
+}
+
+.arrival-1 a {
+    color: black;
+}
+
+.arrival-2 {
+    background-image: url("./images/banner-2-570x350.jpg");
+    padding: 50px 0 0 30px;
+    background-size: cover;
+    background-position: center;
+}
+
+.arrival-2 p {
+    font-size: 24px;
+    text-transform: uppercase;
+    color: white;
+}
+
+.arrival-3 {
+    background-image: url("./images/banner-3-570x350.jpg");
+    background-size: cover;
+    background-position: 75% 50%;
+    padding: 50px 0 0 30px;
+}
+
+.arrival-3 p {
+    font-size: 24px;
+    text-transform: uppercase;
+    line-height: 35px;
+}
+
+.percentage-off {
+    color: #00aee5;
+    font-weight: 700;
+}
+
+
+/* PRODUCTS */
+
+.product {
+    padding: 30px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.product-header {
+    padding: 15px;
+    background-color: #f5f5f5;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-header p {
+    font-size: 15px;
+}
+
+.slide-control {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+#left-arrow,
+#right-arrow {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.fa-chevron-down,
+.fa-chevron-up {
+    color: rgb(150, 150, 150);
+    font-size: 12px;
+}
+
+.product-container {
+    display: flex;
+    gap: 32px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.each-product {
+    border: 1px solid rgb(220, 220, 220);
+    padding: 50px 30px 30px 20px;
+    width: 350px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.each-product p {
+    line-height: 20px;
+}
+
+.each-product img {
+    margin-bottom: 100px;
+    object-fit: cover;
+    object-position: center;
+    padding: 20px 0 0 50px;
+}
+
+.product-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+}
+
+
+.icon-tooltip {
+    position: absolute;
+    bottom: 76px;
+    background-color: #00aee5;
+    padding: 2.5px 8px;
+    font-size: 13px;
+    border-radius: 3px;
+    color: white;
+    width: fit-content;
+    min-width: 85px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+    pointer-events: none;
+}
+
+.icon i {
+    background-color: rgb(225, 225, 225);
+    padding: 10px;
+    border-radius: 50%;
+    color: black;
+    transition: color 0.3s ease-in-out,
+        background-color 0.3s ease-in-out;
+}
+
+.icon:hover .icon-tooltip {
+    opacity: 1;
+}
+
+.icon i:hover {
+    color: white;
+    background-color: rgb(50, 50, 50);
+}
+
+.fa-eye,
+.fa-heart {
+    font-weight: 400;
+}
+
+.icon .fa-shopping-cart {
+    color: white;
+    background-color: #00aee5;
+}
+
+.product-amount {
+    color: #00aee5;
+    font-size: 21px;
+}
+
+.product-name {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.product-description {
+    color: rgb(100, 100, 100);
+    font-size: 13px;
+}
+
+/* FEATURES */
+.features {
+    background-image: url(./images/Electromo_big.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 230px;
+    margin: 0 25px 25px 25px;
+}
+
+/*FOOTER */
+
+footer {
+    background-color: rgb(60, 60, 60);
+    padding: 40px 20px 40px 20px;
+}
+
+.footer-nav-links div {
+    margin-bottom: 30px;
+}
+
+.footer-nav-links div h2 {
+    font-size: 14px;
+    font-weight: 300;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.footer-nav-links div ul {
+    font-size: 12px;
+    font-weight: 300;
+    list-style: none;
+    cursor: pointer;
+}
+
+.footer-nav-links div ul li a {
+    color: #00aee5;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+
+.footer-nav-links div ul li a:hover {
+    color: white;
+}
+
+.footer-nav-links div ul li {
+    padding-bottom: 20px;
+}
+
+.footer-nav-links {
+    padding-bottom: 0px;
+    border-bottom: 1px solid rgb(200, 200, 200);
+}
+
+footer p {
+    color: white;
+    margin-top: 20px;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+footer p i {
+    color: #00aee5;
+    padding-right: 10px;
 }

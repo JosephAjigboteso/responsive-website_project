@@ -18,9 +18,32 @@
     .navigation-list ul li span {
         display: none;
     }
+
+    .arrival-1,
+    .arrival-2,
+    .arrival-3 {
+        height: 500px
+    }
+
+    .each-product {
+        width: 47%;
+    }
+
+    footer {
+        padding: 40px;
+    }
+
+    .footer-nav-links {
+        display: flex;
+        gap: 15%;
+    }
+
+    .footer-nav-links div {
+        margin-bottom: 20px;
+    }
 }
 
-@media (width >=60em) {
+@media (width >=70em) {
     .top-content {
         flex: 1;
     }
@@ -49,6 +72,17 @@
         color: #00aee5;
     }
 
+    .arrival-1,
+    .arrival-2,
+    .arrival-3 {
+        flex: 31%;
+        height: 250px
+    }
+
+    .each-product {
+        width: 370px;
+    }
+
 }
 
 @media (width <=40em) {
@@ -64,5 +98,12 @@
         background-size: cover;
         background-position: 50% 50%;
         min-height: 300px;
+    }
+
+    .arrival-1,
+    .arrival-2,
+    .arrival-3 {
+        padding: 40px 0 0 30px;
+        height: 300px
     }
 }
