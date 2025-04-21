@@ -1,0 +1,68 @@
+@media (width >=40em) {
+    .top-content {
+        flex: 48%;
+    }
+
+    .phone-details {
+        justify-content: flex-end;
+    }
+
+    .search-container button span {
+        display: inline-block;
+    }
+
+    .search-container button i {
+        display: none;
+    }
+
+    .navigation-list ul li span {
+        display: none;
+    }
+}
+
+@media (width >=60em) {
+    .top-content {
+        flex: 1;
+    }
+
+    .search-container {
+        flex: 3;
+    }
+
+    .phone-details {
+        order: 3;
+    }
+
+    .navigation-list {
+        flex: 4;
+    }
+
+    .navigation-list ul li span {
+        display: inline-block;
+    }
+
+    .navigation-list ul li i {
+        font-size: 13px;
+    }
+
+    .navigation-list ul li i:hover {
+        color: #00aee5;
+    }
+
+}
+
+@media (width <=40em) {
+    .home-navigation {
+        display: none;
+    }
+
+    .about-content {
+        font-size: 15px;
+    }
+
+    .slide-container {
+        background-size: cover;
+        background-position: 50% 50%;
+        min-height: 300px;
+    }
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media-queries.css">
+    <title>Electronics Shopping Store</title>
+</head>
+
+<body>
+    <header>
+        <div class="top-container">
+            <div class="top-content">
+                <picture>
+                    <source media="(min-width: 40em)" srcset="./images/logo.webp" width="209" height="52">
+                    <img src="./images/logo.webp" height="auto" width="300">
+                </picture>
+            </div>
+            <div class="phone-details top-content">
+                <i class="fas fa-phone"></i>
+                <p>800-2345-6789</p>
+            </div>
+            <div class="search-container top-content">
+                <input type="text" id="top-search">
+                <button class="search-button"><span>Search</span><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+        <div class="home-navigation">
+            <div class="categories">
+                Categories
+            </div>
+            <div class="navigation-list">
+                <ul>
+                    <li><a><i class="fas fa-home"></i><span>Home</span></a></li>
+                    <li><a><i class="far fa-star"></i><span>Wish List(0)</span></a></li>
+                    <li><a><i class="fas fa-user"></i><span>My Account</span></a></li>
+                    <li><a><i class="fas fa-sign-in-alt"></i><span>Log In</span></a></li>
+                    <li><a></a><i class="fas fa-check-square"></i><span>Checkout</span></a></li>
+                </ul>
+            </div>
+            <div class="shopping-cart">
+                <i class="fa-solid fa-shopping-cart"></i>
+                <p>0 item(s)</p>
+                <i class="fa-solid fa-angle-down"></i>
+            </div>
+        </div>
+    </header>
+    <section class="slides">
+        <div class="slide-container">
+            <div class="content-info">
+                <p class="content-name">iphone x</p>
+                <p class="about-content">ios 11 makes iPhone so smart, it learns from you</p>
+                <button class="shop-btn">Shop now!</button>
+            </div>
+        </div>
+    </section>
+    <script src="slide.js"></script>
+</body>
+
+</html>
