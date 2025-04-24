@@ -14,6 +14,7 @@ body {
 header {
     padding: 30px 25px 0px 25px;
     background-color: #f5f5f5;
+    position: relative;
 }
 
 .top-container {
@@ -101,6 +102,7 @@ header {
 .home-navigation {
     display: flex;
     color: white;
+    position: relative;
 }
 
 .categories {
@@ -113,7 +115,7 @@ header {
 }
 
 .navigation-list {
-    flex: 3;
+    flex: 2.5;
     background-color: rgb(70, 70, 70);
     padding: 20px 0px 20px 15px;
     border-radius: 2px 0px 0 0;
@@ -146,19 +148,55 @@ header {
     color: white;
 }
 
-.shopping-cart {
+.shopping-cart-desk {
     flex: 1;
     background-color: #00aee5;
     padding: 20px 0px 20px 10px;
     border-radius: 0 2px 0 0;
     display: flex;
-    gap: 10px;
     justify-content: center;
     cursor: pointer;
 }
 
+.shopping-cart {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
 .shopping-cart:hover {
     color: #6fd2f0;
+}
+
+.shopping-cart-items {
+    color: black;
+    background-color: rgb(220, 220, 220);
+    text-transform: uppercase;
+    position: absolute;
+    right: 0px;
+    bottom: -55px;
+    padding: 20px 30px;
+    font-size: 12px;
+    font-weight: 300;
+    display: none;
+}
+
+.shopping-cart-items.clicked-shopping-cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.items {
+    display: flex;
+    gap: 5px;
+}
+
+.shopping-cart-list {
+    align-self: flex-start;
+    font-weight: 500;
 }
 
 /* SLIDE */
@@ -318,7 +356,7 @@ NEW ARRIVAL */
 
 .product-container {
     display: flex;
-    gap: 32px;
+    gap: 30px;
     overflow-x: auto;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
@@ -330,8 +368,8 @@ NEW ARRIVAL */
 
 .each-product {
     border: 1px solid rgb(220, 220, 220);
-    padding: 50px 30px 30px 20px;
-    width: 350px;
+    padding: 50px 20px 30px 20px;
+    width: 100%;
     flex-shrink: 0;
     position: relative;
 }
@@ -356,6 +394,7 @@ NEW ARRIVAL */
 .icon {
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }
 
 
@@ -408,22 +447,24 @@ NEW ARRIVAL */
 }
 
 .product-name {
-    font-size: 15px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 400;
 }
 
 .product-description {
-    color: rgb(100, 100, 100);
-    font-size: 13px;
+    color: rgb(150, 150, 150);
+    font-size: 12px;
 }
 
 /* FEATURES */
 .features {
-    background-image: url(./images/Electromo_big.jpg);
-    background-size: cover;
-    background-position: center;
-    height: 230px;
-    margin: 0 25px 25px 25px;
+    margin: 0 30px 30px 30px;
+    cursor: pointer;
+}
+
+.features img {
+    width: 100%;
+    height: auto;
 }
 
 /*FOOTER */
@@ -481,4 +522,63 @@ footer p {
 footer p i {
     color: #00aee5;
     padding-right: 10px;
+}
+
+/* MOBILE NAV */
+.mobile-nav {
+    position: fixed;
+    top: 20px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+    color: rgb(120, 120, 120);
+    cursor: pointer;
+    transition: color 0.3s ease-in;
+    font-weight: 300;
+}
+
+
+.mobile-nav i {
+    font-size: 22px;
+}
+
+.navigation {
+    background-color: rgb(235, 235, 235);
+    padding: 20px;
+    width: 45%;
+    font-weight: 300;
+    font-size: 13px;
+    cursor: pointer;
+    z-index: 1;
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    display: none;
+}
+
+.navigation.show-nav {
+    display: block;
+}
+
+.navigation ul {
+    list-style: none;
+}
+
+.navigation ul li {
+    margin-bottom: 10px;
+    transition: color 0.3s ease in;
+}
+
+.navigation ul li:last-child {
+    margin-bottom: 0px;
+}
+
+.navigation ul li i {
+    color: rgb(100, 100, 100);
+    padding-right: 10px;
+    transition: color 0.3s ease in;
+}
+
+.navigation ul li:hover {
+    color: #00aee5;
 }

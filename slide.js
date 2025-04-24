@@ -31,7 +31,7 @@ function animateName(){
         {transform: "translateY(0px)", opacity: 1},
     ],
     {
-        duration: 2500,
+        duration: 3000,
         easing: 'ease-out',
         fill: 'forwards'
     }
@@ -44,7 +44,7 @@ function animateShopBtn(){
         {transform: "translateY(0px)", opacity: 1},
     ],
     {
-        duration: 2500,
+        duration: 3000,
         easing: 'ease-out',
         fill: 'forwards'
     }

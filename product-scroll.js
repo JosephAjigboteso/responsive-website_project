@@ -5,11 +5,11 @@ const productContainer = document.querySelector('.product-container');
 function scrollAmount(){
     const screenWidth = window.innerWidth;
     if (screenWidth >= 1200){
-        return 400;
+        return 404;
     }else if(screenWidth >= 600){
-        return (0.465 * screenWidth);
+        return (0.472 * screenWidth );
     }else{
-        return 382;
+        return screenWidth - 35;
     }
 }
 
