@@ -75,35 +75,6 @@ latestProducts.forEach(product => {
 
 
 // Adding Items to SHOPPING CART
-// let cartItemNumber = 0;
-
-
-// document.querySelectorAll('.fa-shopping-cart').forEach(cart  => {
-//     let counter = 0;
-//     cart.addEventListener('click', function(e){
-//     const target = e.target;
-//     if(counter != 1){
-//         const itemPickedName = target.parentNode.parentNode.previousElementSibling.previousElementSibling.innerText;
-//         const itemPickedAmount = target.parentNode.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.innerText;
-//         let itemContainer  = document.createElement('p');
-//         itemContainer.classList.add('shopping-cart-list');
-//         itemContainer.innerText = `${itemPickedName}  (${itemPickedAmount})`;
-//         document.querySelectorAll('.shopping-cart-items').forEach(cartItem => {
-//             cartItem.appendChild(itemContainer);
-//         });
-//         cartItemNumber +=1;
-//         document.querySelectorAll('.items-number').forEach(item => {item.innerText = cartItemNumber;
-//     });
-//     counter = 1;
-//     }
-//     console.log(cartItemNumber);
-// });   
-// });
-
-
-
-
-// Adding Items to SHOPPING CART
 let cartItemNumber = 0;
 
 // Load previous cart from localStorage
