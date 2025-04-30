@@ -45,6 +45,10 @@
     #mobile {
         display: none;
     }
+
+    .item-info {
+        font-size: 20px;
+    }
 }
 
 @media (width >=70em) {
@@ -121,7 +125,29 @@
     }
 
     .shopping-cart-items {
-        top: 50px;
+        top: 32px;
         width: 280px;
     }
+}
+
+@media (width >=60em) {
+    .cart-container {
+        width: 600px;
+    }
+
+    .cart-item {
+        flex-direction: row;
+        gap: 30px;
+    }
+
+    .cart-item img {
+        width: 150px;
+    }
+
+    .item-info {
+        align-self: center;
+        font-size: 15px;
+    }
+
+
 }

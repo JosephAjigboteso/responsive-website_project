@@ -41,6 +41,7 @@ latestProducts.forEach(product => {
     //Product Image
     let productImage = document.createElement('img');
     productImage.src = product.product;
+    productImage.title = product.name;
 
     //Product Amount
     let productAmount = document.createElement('p');
@@ -86,53 +87,146 @@ document.querySelectorAll('.items-number').forEach(item => {
 });
 
 // Display stored items in cart on load
+
 cartItems.forEach(item => {
-    let itemContainer = document.createElement('p');
-    itemContainer.innerText = `Name: ${item.name}  Amount: ${item.amount}`;
-    document.querySelectorAll('.shopping-cart-items').forEach(cartItem => {
-        cartItem.appendChild(itemContainer);
-    });
+    const itemContainer = document.createElement('div');
+    itemContainer.classList.add('cart-item');
+    const cartItemImage = document.createElement('img');
+    cartItemImage.src = item.image;
+    const itemInfo = document.createElement('div');
+    itemInfo.classList.add('item-info');
+    const infoCont = document.createElement('div');
+    infoCont.classList.add('info-cont');
+    const cartItemName = document.createElement('p');
+    cartItemName.textContent = item.name;
+    const decreaseItem = document.createElement('span');
+    decreaseItem.classList.add('decrease-item');
+    decreaseItem.textContent = '-';
+    itemCount = document.createElement('button');
+    itemCount.textContent = '1';
+    itemCount.classList.add('item-count');
+    const increaseItem = document.createElement('span');
+    increaseItem.classList.add('increase-item');
+    increaseItem.textContent = '+';
+    const itemAmount = document.createElement('p');
+    itemAmount.classList.add('item-amount');
+    itemAmount.textContent = item.amount;
+    const removeBtn = document.createElement('button');
+    removeBtn.textContent = 'Remove';
+    removeBtn.classList.add('remove-btn');
+
+    //APPENDING ITEMS
+    itemContainer.appendChild(cartItemImage);
+    itemContainer.appendChild(itemInfo);
+    itemInfo.appendChild(infoCont);
+    infoCont.appendChild(cartItemName);
+    infoCont.appendChild(decreaseItem);
+    infoCont.appendChild(itemCount);
+    infoCont.appendChild(increaseItem);
+    infoCont.appendChild(itemAmount);
+    itemInfo.appendChild(removeBtn);
+    
+    document.querySelector('.cart-items').appendChild(itemContainer);
+
 });
+
+// cartItems.forEach(item => {
+//     document.querySelectorAll('.shopping-cart-items').forEach(cartItem => {
+//         let itemContainer = document.createElement('p');
+//         itemContainer.innerText = `Name: ${item.name}  Amount: ${item.amount}`;
+//         cartItem.appendChild(itemContainer);
+//     });
+// });
+
 
 document.querySelectorAll('.fa-shopping-cart').forEach(cart => {
     let counter = 0;
-
-    cart.addEventListener('click', function(e) {
-        const target = e.target;
-
+    cart.addEventListener('click', function(event) {
+        const product = event.target.closest('.each-product');
         if (counter !== 1) {
-            const itemPickedName = target.parentNode.parentNode.previousElementSibling.previousElementSibling.innerText;
-            const itemPickedAmount = target.parentNode.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.innerText;
+            const itemPickedName = product.querySelector('.product-name').textContent;
+            const itemPickedAmount = product.querySelector('.product-amount').textContent;
+            const itemPickedImage = product.querySelector('img').src;
 
             // Create item object
             let newItem = {
                 name: itemPickedName,
-                amount: itemPickedAmount
+                amount: itemPickedAmount,
+                image: itemPickedImage
             };
 
             // Save to local array and localStorage
             cartItems.push(newItem);
             localStorage.setItem('cart', JSON.stringify(cartItems));
+            
 
-            // Create and add new item element
-            let itemContainer = document.createElement('p');
-            itemContainer.innerText = `Name: ${itemPickedName}  Amount: ${itemPickedAmount}`;
-            document.querySelectorAll('.shopping-cart-items').forEach(cartItem => {
-                cartItem.appendChild(itemContainer);
-            });
+            // Create and add item to Shopping Cart
+            const itemContainer = document.createElement('div');
+            itemContainer.classList.add('cart-item');
+            const cartItemImage = document.createElement('img');
+            cartItemImage.src = itemPickedImage;
+            const itemInfo = document.createElement('div');
+            itemInfo.classList.add('item-info');
+            const infoCont = document.createElement('div');
+            infoCont.classList.add('info-cont');
+            const cartItemName = document.createElement('p');
+            cartItemName.textContent = itemPickedName;
+            const decreaseItem = document.createElement('span');
+            decreaseItem.classList.add('decrease-item');
+            decreaseItem.textContent = '-';
+            const itemCount = document.createElement('button');
+            itemCount.textContent = '1';
+            itemCount.classList.add('item-count');
+            const increaseItem = document.createElement('span');
+            increaseItem.classList.add('increase-item');
+            increaseItem.textContent = '+';
+            const itemAmount = document.createElement('p');
+            itemAmount.classList.add('item-amount');
+            itemAmount.textContent = itemPickedAmount;
+            const removeBtn = document.createElement('button');
+            removeBtn.textContent = 'Remove';
+            removeBtn.classList.add('remove-btn');
+            
+            //APPENDING ITEMS
+            itemContainer.appendChild(cartItemImage);
+            itemContainer.appendChild(itemInfo);
+            itemInfo.appendChild(infoCont);
+            infoCont.appendChild(cartItemName);
+            infoCont.appendChild(decreaseItem);
+            infoCont.appendChild(itemCount);
+            infoCont.appendChild(increaseItem);
+            infoCont.appendChild(itemAmount);
+            itemInfo.appendChild(removeBtn);
+            document.querySelector('.cart-items').appendChild(itemContainer);
 
-            cartItemNumber = cartItems.length;
+
+            //UPDATE ITEMS NUMBER
 
             document.querySelectorAll('.items-number').forEach(item => {
                 item.innerText = cartItemNumber;
+                cartItemNumber = cartItems.length;
             });
 
+
+            //Update Counter
             counter = 1;
+
+            //Change cart color after click  
+            event.target.style.color = "black";
+            const cartTooltip = event.target.nextElementSibling;
+            cartTooltip.setAttribute("style", "background-color: red; width: 125px; left: 1px")
+            cartTooltip.textContent = 'Remove from Cart';
+            
         }
 
-        console.log(cartItems);
+        // REMOVE DEFAULT Shopping Cart Message
+        // document.querySelectorAll('.cart-empty-message').forEach(cart => {
+        //     cart.innerText = 'SHOPPING CART';
+        // });
     });
 });
+
+
 
 
 
@@ -140,7 +234,19 @@ document.querySelectorAll('.fa-shopping-cart').forEach(cart => {
 
 document.querySelectorAll('.shopping-cart').forEach( cart => {
     cart.addEventListener('click', function(){
-        const cartItems = cart.querySelector('.shopping-cart-items');
-        cartItems.classList.toggle('clicked-shopping-cart');
+        const cartEmptyMessage = cart.querySelector('.shopping-cart-items');
+        if (cartItems.length === 0){
+            cartEmptyMessage.classList.toggle('clicked-shopping-cart');
+        }else
+            document.querySelector('.side-bar').style.display = 'block';
     });
 });
+
+localStorage.removeItem('cart');
+console.log(cartItems);
+
+// CLOSE SIDEBAR
+
+document.querySelector('.close-btn').addEventListener('click', function(){
+    document.querySelector('.side-bar').style.display = 'none';
+})
