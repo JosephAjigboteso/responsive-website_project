@@ -695,3 +695,13 @@ footer p i {
 .remove-btn:active {
     opacity: 0.6;
 }
+
+.increase-item,
+.decrease-item {
+    cursor: pointer;
+}
+
+.increase-item:active,
+.decrease-item:active {
+    text-shadow: 1px 1px 1px black;
+}

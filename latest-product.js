@@ -78,8 +78,10 @@ latestProducts.forEach(product => {
 // Adding Items to SHOPPING CART
 let cartItemNumber = 0;
 
+let cartItems = [];
+
 // Load previous cart from localStorage
-let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+cartItems = JSON.parse(localStorage.getItem('cart')) || [];
 
 // Update cart count on page load
 document.querySelectorAll('.items-number').forEach(item => {
@@ -98,12 +100,13 @@ cartItems.forEach(item => {
     const infoCont = document.createElement('div');
     infoCont.classList.add('info-cont');
     const cartItemName = document.createElement('p');
+    cartItemName.classList.add('item-picked-name');
     cartItemName.textContent = item.name;
     const decreaseItem = document.createElement('span');
     decreaseItem.classList.add('decrease-item');
     decreaseItem.textContent = '-';
     itemCount = document.createElement('button');
-    itemCount.textContent = '1';
+    itemCount.textContent = item.count;
     itemCount.classList.add('item-count');
     const increaseItem = document.createElement('span');
     increaseItem.classList.add('increase-item');
@@ -130,13 +133,17 @@ cartItems.forEach(item => {
 
 });
 
-// cartItems.forEach(item => {
-//     document.querySelectorAll('.shopping-cart-items').forEach(cartItem => {
-//         let itemContainer = document.createElement('p');
-//         itemContainer.innerText = `Name: ${item.name}  Amount: ${item.amount}`;
-//         cartItem.appendChild(itemContainer);
-//     });
-// });
+// CALCULATING TOTAL AMOUNT IN SHOPPING CART
+let totalAmount = 0;
+
+cartItems.forEach(item => {
+    let calAmount = item.amount.replace('$', ''); // remove dollar sign
+    calAmount = parseFloat(calAmount) * 100;   // convert to cents
+    console.log(calAmount);
+    totalAmount += calAmount;
+});
+updateTotalAmount();
+
 
 
 document.querySelectorAll('.fa-shopping-cart').forEach(cart => {
@@ -152,7 +159,8 @@ document.querySelectorAll('.fa-shopping-cart').forEach(cart => {
             let newItem = {
                 name: itemPickedName,
                 amount: itemPickedAmount,
-                image: itemPickedImage
+                image: itemPickedImage,
+                count: 1
             };
 
             // Save to local array and localStorage
@@ -170,6 +178,7 @@ document.querySelectorAll('.fa-shopping-cart').forEach(cart => {
             const infoCont = document.createElement('div');
             infoCont.classList.add('info-cont');
             const cartItemName = document.createElement('p');
+            cartItemName.classList.add('item-picked-name');
             cartItemName.textContent = itemPickedName;
             const decreaseItem = document.createElement('span');
             decreaseItem.classList.add('decrease-item');
@@ -207,6 +216,12 @@ document.querySelectorAll('.fa-shopping-cart').forEach(cart => {
                 cartItemNumber = cartItems.length;
             });
 
+            //Adding to Total Amount
+
+            let calAmount = itemPickedAmount.replace('$', ''); // remove dollar sign
+            calAmount = parseFloat(calAmount) * 100;   // convert to cents
+            totalAmount += calAmount;
+            updateTotalAmount();
 
             //Update Counter
             counter = 1;
@@ -218,15 +233,14 @@ document.querySelectorAll('.fa-shopping-cart').forEach(cart => {
             cartTooltip.textContent = 'Remove from Cart';
             
         }
-
-        // REMOVE DEFAULT Shopping Cart Message
-        // document.querySelectorAll('.cart-empty-message').forEach(cart => {
-        //     cart.innerText = 'SHOPPING CART';
-        // });
     });
 });
 
-
+// FUNCTION TO UPDATE TOTAL AMOUNT
+function updateTotalAmount(){
+    document.querySelector('.total-amount').textContent = 
+    `Total Amount: $${(totalAmount / 100).toFixed(2)}`;
+}
 
 
 
@@ -242,11 +256,108 @@ document.querySelectorAll('.shopping-cart').forEach( cart => {
     });
 });
 
-localStorage.removeItem('cart');
-console.log(cartItems);
 
 // CLOSE SIDEBAR
 
 document.querySelector('.close-btn').addEventListener('click', function(){
     document.querySelector('.side-bar').style.display = 'none';
 })
+
+// REMOVING ITEMS $ INCREASING ITEMS FROM SHOPPING CART 
+
+document.querySelector('.cart-items').addEventListener('click', function(event){
+    if (event.target.classList.contains('remove-btn')) {
+        const itemToRemove = event.target.closest('.cart-item');
+        const itemToRemoveName = itemToRemove.querySelector('.item-picked-name');
+
+        //Remove from DOM
+        itemToRemove.remove();
+    
+        // Remove from cartItems array
+         cartItems = cartItems.filter(item => item.name !== itemToRemoveName.textContent);
+
+         // Update localStorage
+         localStorage.setItem('cart', JSON.stringify(cartItems))
+
+         //Update cart count
+         document.querySelectorAll('.items-number').forEach(item => {
+            item.innerText = cartItems.length;
+        });
+
+        
+        // Update total amount
+        let itemToRemoveAmount = itemToRemove.querySelector('.item-amount').textContent.replace('$', '');
+        totalAmount -= parseFloat(itemToRemoveAmount) * 100;
+        updateTotalAmount();        
+    }
+
+    //Increasing number of items in SHOPPING CART
+
+    if (event.target.classList.contains('increase-item')){
+        cartItemIncrease = event.target.closest('.cart-item');
+        const itemCountElement = cartItemIncrease.querySelector('.item-count');
+        let currentCount = parseInt(itemCountElement.textContent);
+        baseAmount = cartItemIncrease.querySelector('.item-amount').textContent.replace('$', '') / currentCount;
+           // Increment the count
+        currentCount += 1;
+        itemCountElement.textContent = currentCount;
+
+        //increase item amount
+        
+        let currentAmount = parseFloat(baseAmount) * 100 * currentCount
+      
+        // Update item amount in DOM
+        cartItemIncrease.querySelector('.item-amount').textContent = `$${(currentAmount / 100).toFixed(2)}`;
+
+        //Update to LocalStorage
+        cartItems.forEach(item =>{
+            if (item.name === cartItemIncrease.querySelector('.item-picked-name').textContent){
+                item.count = currentCount;
+                item.amount = `$${(currentAmount / 100).toFixed(2)}`;
+                localStorage.setItem('cart', JSON.stringify(cartItems));
+            }
+        })
+        //Get current Total Amount
+        // let totalAmount = document.querySelector('.total-amount');
+        
+    }
+    if (event.target.classList.contains('decrease-item')){
+        cartItemDecrease = event.target.closest('.cart-item');
+        const itemCountElement = cartItemDecrease.querySelector('.item-count');
+        let currentCount = parseInt(itemCountElement.textContent);
+        if (currentCount !== 1){
+            baseAmount = cartItemDecrease.querySelector('.item-amount').textContent.replace('$', '') / currentCount;
+
+            // Decrease count
+            currentCount -= 1;
+
+            itemCountElement.textContent = currentCount;
+            let currentAmount = parseFloat(baseAmount) * 100 * currentCount;
+            
+        // Update item amount in DOM
+        cartItemDecrease.querySelector('.item-amount').textContent = `$${(currentAmount / 100).toFixed(2)}`;
+        }
+
+         //Update to LocalStorage
+         cartItems.forEach(item =>{
+        if (item.name === cartItemDecrease.querySelector('.item-picked-name').textContent){
+            item.count = currentCount;
+            item.amount = `$${(currentAmount / 100).toFixed(2)}`;
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+        }
+    })
+        
+        //Get current Total Amount
+        // let totalAmount = document.querySelector('.total-amount');
+        
+    }
+
+})
+
+
+
+
+
+    
+
+    
