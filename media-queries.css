@@ -128,6 +128,22 @@
         top: 32px;
         width: 280px;
     }
+
+    .login-container {
+        flex-direction: column;
+    }
+
+    .top-container {
+        padding-bottom: 30px;
+    }
+
+    .register form fieldset div {
+        flex-direction: column;
+    }
+
+    .register form fieldset div label {
+        text-align: left;
+    }
 }
 
 @media (width >=60em) {
@@ -147,6 +163,10 @@
     .item-info {
         align-self: center;
         font-size: 15px;
+    }
+
+    .register form fieldset div label {
+        flex: 1;
     }
 
 

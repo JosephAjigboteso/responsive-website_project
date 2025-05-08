@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media-queries.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <title>Electronics Shopping Store</title>
+</head>
+
+<body>
+    <header>
+        <div class="top-container">
+            <div class="top-content">
+                <picture>
+                    <source media="(min-width: 40em)" srcset="./images/logo.webp" width="209" height="52">
+                    <img src="./images/logo.webp" height="auto" width="220">
+                </picture>
+            </div>
+            <div class="phone-details top-content">
+                <i class="fas fa-phone"></i>
+                <p>800-2345-6789</p>
+            </div>
+            <div class="search-container top-content">
+                <input type="text" id="top-search">
+                <button class="search-button"><span>Search</span><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+        <div id="mobile">
+            <div class="mobile-nav">
+                <p id="mobile-navigation"><i class="fa fa-cog"></i></p>
+                <div class="shopping-cart">
+                    <i class="fa-solid fa-shopping-cart"></i>
+                    <div class="items">
+                        <p class="items-number">0</p> <span>item(s) <i class="fa-solid fa-angle-down"></i></span>
+                    </div>
+                    <div class="shopping-cart-items">
+                        <p class="cart-empty-message">your shopping cart is empty!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="navigation">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i><span>Home</span></a></li>
+                    <li><a><i class="far fa-star"></i><span>Wish List(0)</span></a></li>
+                    <li><a><i class="fas fa-user"></i><span>My Account</span></a></li>
+                    <li><a href="login.html"><i class="fas fa-sign-in-alt"></i><span>Log In</span></a></li>
+                    <li><a><i class="fas fa-check-square"></i><span>Checkout</span></a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+        <div class="home-navigation">
+            <div class="categories">
+                Categories
+            </div>
+            <div class="navigation-list">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i><span>Home</span></a></li>
+                    <li><a><i class="far fa-star"></i><span>Wish List(0)</span></a></li>
+                    <li><a><i class="fas fa-user"></i><span>My Account</span></a></li>
+                    <li><a href="login.html"><i class="fas fa-sign-in-alt"></i><span>Log In</span></a></li>
+                    <li><a><i class="fas fa-check-square"></i><span>Checkout</span></a></li>
+                </ul>
+            </div>
+            <div class="shopping-cart  shopping-cart-desk">
+                <i class="fa-solid fa-shopping-cart"></i>
+                <div class="items">
+                    <p class="items-number">0</p> <span>item(s)</span>
+                </div>
+                <i class="fa-solid fa-angle-down"></i>
+                <div class="shopping-cart-items">
+                    <p class="cart-empty-message">your shopping cart is empty!</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="page-nav">
+        <a href="index.html"><i class="fas fa-home"></i></a>
+        <i class="fas fa-chevron-right"></i>
+        <a href="login.html" class="page-name">Account</a>
+        <i class="fas fa-chevron-right"></i>
+        <p class="page-name">login</p>
+    </div>
+    <section id="login-section">
+        <div class="login-container">
+            <div class="new-customer">
+                <h1>New Customer</h1>
+                <h3>Register</h3>
+                <p>By creating an account you will be able to shop faster, be up to date on an order's status, and keep
+                    track of the orders you have previously made.</p>
+                <button class="new-customer-btn"><a href="register.html">Continue</a></button>
+            </div>
+            <div class="returning-customer">
+                <h1>Returning Customer</h1>
+                <h3>I am a returning customer</h3>
+                <form>
+                    <fieldset class="login-form">
+                        <label>E-Mail Address</label>
+                        <input type="email" placeholder="E-Mail Address">
+                        <label>Password</label>
+                        <input type="password" placeholder="Password">
+                    </fieldset>
+                </form>
+                <p>Forgetten password</p>
+                <button class="returning-customer-btn">Login</button>
+            </div>
+
+        </div>
+    </section>
+    <div class="features">
+        <img src="./images/Electromo_big.jpg" alt="Electromo">
+    </div>
+    <footer>
+        <div class="footer-nav-links">
+            <div>
+                <h2>Information</h2>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a>Delivery information</a></li>
+                    <li><a>Privacy Policy</a></li>
+                    <li><a>Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div>
+                <h2>My Account</h2>
+                <ul>
+                    <li><a>My Account</a></li>
+                    <li><a>Order History</a></li>
+                    <li><a>Find a Wish List</a></li>
+                    <li><a>Gift Certificates</a></li>
+                </ul>
+            </div>
+            <div>
+                <h2>Customer Service</h2>
+                <ul>
+                    <li><a>Contact Us</a></li>
+                    <li><a>Returns</a></li>
+                    <li><a>Site Map</a></li>
+                    <li><a>Blog</a></li>
+                </ul>
+            </div>
+        </div>
+        <p><i class="fa fa-plug"></i> Powered By OpenCart Electromo © 2025. Design by Zemez</p>
+    </footer>
+    <script src="navigation.js"></script>
+</body>
+
+</html>

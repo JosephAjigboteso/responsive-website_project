@@ -9,6 +9,10 @@ body {
     font-family: "Ubuntu", sans-serif;
 }
 
+input:focus {
+    outline: none;
+}
+
 /* HEADER */
 
 header {
@@ -65,10 +69,6 @@ header {
     border: 1px solid rgb(200, 200, 200);
     background-color: #f5f5f5;
     padding-left: 15px;
-}
-
-.search-container input:focus {
-    outline: none;
 }
 
 .search-container button {
@@ -130,11 +130,13 @@ header {
     cursor: pointer;
 }
 
-.navigation-list ul li {
+.navigation-list ul li a {
     transition: color 0.4s;
+    color: white;
+    text-decoration: none;
 }
 
-.navigation-list ul li:hover {
+.navigation-list ul li a:hover {
     color: #00aee5;
 }
 
@@ -577,12 +579,18 @@ footer p i {
 }
 
 .navigation ul li i {
-    color: rgb(100, 100, 100);
+
     padding-right: 10px;
-    transition: color 0.3s ease in;
+
 }
 
-.navigation ul li:hover {
+.navigation ul li a {
+    color: rgb(100, 100, 100);
+    transition: color 0.3s ease in;
+    text-decoration: none;
+}
+
+.navigation ul li a:hover {
     color: #00aee5;
 }
 
@@ -704,4 +712,282 @@ footer p i {
 .increase-item:active,
 .decrease-item:active {
     text-shadow: 1px 1px 1px black;
+}
+
+/* LOGIN SECTION */
+
+#login-section {
+    margin: 40px;
+}
+
+.page-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    border: 1px solid rgb(230, 230, 230);
+    padding: 15px;
+    color: rgb(150, 150, 150);
+    margin: 30px 40px 0 40px;
+}
+
+.page-nav a {
+    color: rgb(100, 100, 100);
+    text-decoration: none;
+}
+
+.page-nav a:hover {
+    color: #00aee5;
+}
+
+.page-nav i {
+    font-size: 10px;
+}
+
+.page-nav .fa-chevron-right {
+    margin-right: -5px;
+}
+
+.page-nav .page-name {
+    color: rgb(130, 130, 130);
+}
+
+.login-container {
+    display: flex;
+    gap: 30px;
+
+}
+
+.new-customer,
+.returning-customer {
+    border: 1px solid rgb(230, 230, 230);
+    border-top: 3.5px solid #00aee5;
+    height: 430px;
+    padding: 40px 40px 0px 30px;
+    width: 100%;
+}
+
+.new-customer h1,
+.returning-customer h1 {
+    font-weight: 500;
+    font-size: 25px;
+    color: #3D454C;
+}
+
+.new-customer h3,
+.returning-customer h3 {
+    font-size: 14px;
+    color: #888888;
+    margin: 40px 0;
+}
+
+.returning-customer h3 {
+    margin-bottom: 30px;
+}
+
+.new-customer p {
+    color: #888888;
+    font-size: 14px;
+    margin-bottom: 30px;
+    width: 90%;
+    min-width: 270px;
+    line-height: 23px;
+}
+
+.new-customer-btn,
+.returning-customer-btn,
+.continue-btn {
+    margin-top: 10px;
+    padding: 12px 25px;
+    border: none;
+    color: white;
+    background-color: rgb(80, 80, 80);
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.new-customer-btn a {
+    text-decoration: none;
+    color: white;
+}
+
+.new-customer-btn:hover,
+.returning-customer-btn:hover,
+.continue-btn:hover {
+    background-color: #00aee5;
+}
+
+.login-form {
+    border: none;
+}
+
+.returning-customer p {
+    color: #888888;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.returning-customer p:hover {
+    color: #00aee5;
+}
+
+.login-form label,
+.login-form input {
+    display: block;
+    width: 100%;
+    font-size: 12px;
+}
+
+.login-form input {
+    padding: 10px;
+    border: 1px solid rgb(230, 230, 230);
+    font-weight: 100;
+    color: rgb(130, 130, 130);
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.login-form ::-webkit-input-placeholder {
+    color: rgb(200, 200, 200);
+    font-weight: 100;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.login-form input:hover {
+    border-color: #00aee5;
+    box-shadow: 0px 0px 8px rgba(0, 174, 229, 0.4);
+}
+
+/* REGISTER */
+
+.register {
+    margin: 40px 40px 20px 40px;
+}
+
+.register p {
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: rgb(110, 110, 110);
+}
+
+.register p a {
+    color: #00aee5;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.register p a:hover {
+    color: black;
+}
+
+.register form fieldset {
+    border: none;
+    margin-bottom: 10px;
+}
+
+.register form fieldset legend {
+    font-size: 20px;
+    display: block;
+    border-bottom: 1px solid rgb(220, 220, 220);
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+.register form fieldset div {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 12.5px;
+    padding-left: 50px;
+    color: rgb(80, 80, 80);
+}
+
+.register form fieldset div input {
+    flex: 8;
+    border: 1px solid rgb(230, 230, 230);
+    font-weight: 100;
+    font-size: 12.5px;
+    color: rgb(120, 120, 120);
+    padding: 12px;
+}
+
+.register form fieldset div input:hover {
+    border-color: #00aee5;
+    box-shadow: 0px 0px 8px rgba(0, 174, 229, 0.4);
+}
+
+
+.register form fieldset div label {
+    flex: 1.5;
+    min-width: 120px;
+    text-align: right;
+    border: 1px solid red;
+}
+
+.register form fieldset div label span {
+    color: red;
+    font-size: 14px;
+    padding-left: 3px;
+}
+
+.register form fieldset div ::-webkit-input-placeholder {
+    color: rgb(120, 120, 120);
+    font-weight: 100;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.subscription {
+    display: flex;
+    gap: 10px;
+    font-size: 12.5px;
+    margin-bottom: 20px;
+
+}
+
+.subscribe {
+    border: 1px solid black;
+    flex: 0.12;
+    margin-left: 50px;
+    text-align: right;
+    min-width: 120px;
+    margin-right: 5px;
+}
+
+
+.subscription input {
+    color: #00aee5;
+}
+
+.submit-section {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.submit-section label {
+    font-size: 14px;
+    color: rgb(120, 120, 120);
+    margin-right: 5px;
+}
+
+.submit-section label a {
+    font-weight: 600;
+    text-decoration: none;
+    color: rgb(120, 120, 120);
+    transition: color 0.3s ease-in-out;
+}
+
+.submit-section label a:hover {
+    color: #00aee5;
+}
+
+.continue-btn {
+    margin-top: 0px;
+    margin-left: 15px;
 }

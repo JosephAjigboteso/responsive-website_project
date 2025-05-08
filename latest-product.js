@@ -208,7 +208,6 @@ document.querySelectorAll('.fa-shopping-cart').forEach(cart => {
             itemInfo.appendChild(removeBtn);
             document.querySelector('.cart-items').appendChild(itemContainer);
 
-
             //UPDATE ITEMS NUMBER
 
             document.querySelectorAll('.items-number').forEach(item => {
@@ -317,7 +316,10 @@ document.querySelector('.cart-items').addEventListener('click', function(event){
                 localStorage.setItem('cart', JSON.stringify(cartItems));
             }
         })
-        //Get current Total Amount
+
+        //Update Total Amount
+        
+
         // let totalAmount = document.querySelector('.total-amount');
         
     }
@@ -352,12 +354,4 @@ document.querySelector('.cart-items').addEventListener('click', function(event){
         
     }
 
-})
-
-
-
-
-
-    
-
-    
+})    
