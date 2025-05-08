@@ -93,48 +93,48 @@
     </div>
     <section class="register">
         <p>If you already have an account with us, please login at the <a href="login.html">login page</a>.</p>
-        <form>
+        <form id="register-form">
             <fieldset>
                 <legend>Your Personal Detials</legend>
                 <div>
                     <label>First Name<span>*</span></label>
-                    <input type="text" placeholder="First Name" required>
+                    <input type="text" placeholder="First Name" class="first-name" required>
                 </div>
                 <div>
                     <label>Last Name<span>*</span></label>
-                    <input type="text" placeholder="Last Name" required>
+                    <input type="text" placeholder="Last Name" class="last-name" required>
                 </div>
                 <div>
                     <label>E-Mail<span>*</span></label>
-                    <input type="email" placeholder="E-Mail" required>
+                    <input type="email" placeholder="E-Mail" class="mail" required>
                 </div>
                 <div>
                     <label>Telephone<span>*</span></label>
-                    <input type="tel" placeholder="Telephone" required>
+                    <input type="tel" placeholder="Telephone" class="phone-number" required>
                 </div>
             </fieldset>
             <fieldset>
                 <legend>Your Password</legend>
                 <div>
                     <label>Password<span>*</span></label>
-                    <input type="password" placeholder="Password" required>
+                    <input type="password" placeholder="Password" class="password" required>
                 </div>
                 <div>
                     <label>Password Confirm<span>*</span></label>
-                    <input type="password" placeholder="Password Confirm" required>
+                    <input type="password" placeholder="Password Confirm" class="password-confirm" required>
                 </div>
             </fieldset>
             <fieldset class="subscription">
                 <legend>Newsletter</legend>
                 <label class="subscribe">Subscribe</label>
-                <input type="radio" name="Yes" value="Yes">
+                <input type="radio" name="option" value="Yes">
                 <label>Yes</label>
-                <input type="radio" name="No" value="No">
+                <input type="radio" name="option" value="No">
                 <label>No</label>
             </fieldset>
             <fieldset class="submit-section">
                 <label>I have read and agree to the <a href="#">Privacy Policy</a></label>
-                <input type="checkbox" value="agreed">
+                <input type="checkbox" value="agreed" required>
                 <button type="submit" class="continue-btn">Continue</button>
             </fieldset>
         </form>
@@ -175,6 +175,7 @@
         <p><i class="fa fa-plug"></i> Powered By OpenCart Electromo © 2025. Design by Zemez</p>
     </footer>
     <script src="navigation.js"></script>
+    <script src="user.js"></script>
 </body>
 
 </html>

@@ -149,6 +149,11 @@ updateTotalAmount();
 document.querySelectorAll('.fa-shopping-cart').forEach(cart => {
     let counter = 0;
     cart.addEventListener('click', function(event) {
+        logState = JSON.parse(localStorage.getItem('isLoggedIn'));
+        if (!logState) {
+            window.location.href = "login.html";
+            return;
+        }
         const product = event.target.closest('.each-product');
         if (counter !== 1) {
             const itemPickedName = product.querySelector('.product-name').textContent;

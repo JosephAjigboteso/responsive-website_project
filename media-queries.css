@@ -139,11 +139,30 @@
 
     .register form fieldset div {
         flex-direction: column;
+        padding-left: 30px;
     }
 
     .register form fieldset div label {
         text-align: left;
     }
+
+    .subscribe {
+        width: 100%;
+        text-align: left;
+    }
+
+    .subscription input {
+        margin-left: 30px;
+    }
+
+    .submit-section label {
+        width: 90%;
+    }
+
+    .continue-btn {
+        margin-top: 15px;
+    }
+
 }
 
 @media (width >=60em) {

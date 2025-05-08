@@ -767,6 +767,23 @@ footer p i {
     width: 100%;
 }
 
+.returning-customer {
+    position: relative;
+}
+
+.login-message {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    background-color: #00aee5;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    padding: 5px;
+    display: none;
+}
+
 .new-customer h1,
 .returning-customer h1 {
     font-weight: 500;
@@ -904,7 +921,7 @@ footer p i {
     justify-content: center;
     margin-bottom: 20px;
     font-size: 12.5px;
-    padding-left: 50px;
+    padding-left: 30px;
     color: rgb(80, 80, 80);
 }
 
@@ -927,7 +944,6 @@ footer p i {
     flex: 1.5;
     min-width: 120px;
     text-align: right;
-    border: 1px solid red;
 }
 
 .register form fieldset div label span {
@@ -944,30 +960,32 @@ footer p i {
 
 .subscription {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     font-size: 12.5px;
     margin-bottom: 20px;
 
 }
 
+.subscription input {
+    margin-left: 20px;
+}
+
 .subscribe {
-    border: 1px solid black;
-    flex: 0.12;
-    margin-left: 50px;
+    margin-left: 30px;
     text-align: right;
     min-width: 120px;
     margin-right: 5px;
-}
-
-
-.subscription input {
-    color: #00aee5;
+    display: block;
 }
 
 .submit-section {
     display: flex;
+    flex-wrap: wrap;
     justify-content: flex-end;
     align-items: center;
+    padding-left: 20px;
+    margin-top: 20px;
 }
 
 .submit-section label {
@@ -981,9 +999,14 @@ footer p i {
     text-decoration: none;
     color: rgb(120, 120, 120);
     transition: color 0.3s ease-in-out;
+
 }
 
 .submit-section label a:hover {
+    color: #00aee5;
+}
+
+.submit-section input {
     color: #00aee5;
 }
 

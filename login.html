@@ -101,20 +101,20 @@
                 <button class="new-customer-btn"><a href="register.html">Continue</a></button>
             </div>
             <div class="returning-customer">
+                <div class="login-message">Logged in succcesfully!</div>
                 <h1>Returning Customer</h1>
                 <h3>I am a returning customer</h3>
-                <form>
+                <form id="login-form">
                     <fieldset class="login-form">
                         <label>E-Mail Address</label>
-                        <input type="email" placeholder="E-Mail Address">
+                        <input type="email" placeholder="E-Mail Address" class="user-mail">
                         <label>Password</label>
-                        <input type="password" placeholder="Password">
+                        <input type="password" placeholder="Password" class="user-password">
                     </fieldset>
+                    <p>Forgetten password</p>
+                    <button class="returning-customer-btn">Login</button>
                 </form>
-                <p>Forgetten password</p>
-                <button class="returning-customer-btn">Login</button>
             </div>
-
         </div>
     </section>
     <div class="features">
@@ -153,6 +153,7 @@
         <p><i class="fa fa-plug"></i> Powered By OpenCart Electromo © 2025. Design by Zemez</p>
     </footer>
     <script src="navigation.js"></script>
+    <script src="user.js"></script>
 </body>
 
 </html>
